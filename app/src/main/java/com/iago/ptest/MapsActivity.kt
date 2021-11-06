@@ -105,6 +105,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                 // All location settings are satisfied. The client can initialize
                 // location requests here.
                 // ...
+                mMap.isMyLocationEnabled = true
+                mMap.uiSettings.isMyLocationButtonEnabled = true
                 if (spotManager?.getSpot() == null) {
                     mMap.setOnMyLocationChangeListener(object :
                         GoogleMap.OnMyLocationChangeListener {
@@ -156,9 +158,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         mMap.uiSettings.isCompassEnabled = true
         mMap.uiSettings.isZoomControlsEnabled = true
         mMap.uiSettings.isZoomGesturesEnabled = true
-
-        mMap.isMyLocationEnabled = true
-        mMap.uiSettings.isMyLocationButtonEnabled = true
 
         spotManager.getSpot()?.let {
             mMap.addMarker(
